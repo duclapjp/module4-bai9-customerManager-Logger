@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:insert="/customer/layout::head">
+    <meta charset="UTF-8">
+    <title>Title</title>
+<body>
+<form th:action="@{/customer/__${customer.id}__/delete}" method="post">
+    <h1>Customers</h1>
+    <table border="1">
+        <tr>
+            <th>First name</th>
+            <th>Last name</th>
+        </tr>
+        <th:block th:each="customer : ${customer}">
+            <tr>
+                <td th:text="${customer.firstName}"></td>
+                <td th:text="${customer.lastName}"></td>
+            </tr>
+        </th:block>
+        <tr>
+            <td><input type="submit" value="Delete"></td>
+            <td><a th:href="@{/customer/list}">Cancel</a></td>
+        </tr>
+    </table>
+</form>
+
+<footer th:insert="/customer/layout::footer">
+</footer>
+</body>
+</html>

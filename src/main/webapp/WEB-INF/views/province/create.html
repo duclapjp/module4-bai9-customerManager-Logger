@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:insert="/province/layout::head">
+    <meta charset="UTF-8">
+    <title>Title</title>
+<body>
+<h1>Create province</h1>
+<p>
+    <a href="/province/view">Province list</a>
+</p>
+<th:block th:if="${message}">
+    <p th:text="${message}"></p>
+</th:block>
+<form th:action="@{/province/save}" th:object="${province}" method="post">
+    <table>
+        <tr>
+            <td>Name:</td>
+            <td><input type="text" th:field="*{name}"/></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Create province"></td>
+        </tr>
+    </table>
+</form>
+<footer th:insert="/province/layout::footer">
+</footer>
+</body>
+</html>
